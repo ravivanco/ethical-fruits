@@ -33,55 +33,13 @@ export default function Certificaciones() {
           </div>
         </div>
 
-        {/* Carrusel infinito de certificaciones */}
-        <div className="relative w-full overflow-hidden py-12">
-          {/* Degradados laterales para efecto fade */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-gray-50 to-transparent md:w-32" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-gray-50 to-transparent md:w-32" />
-          
-          {/* Contenedor del carrusel con animación */}
-          <div 
-            className="flex will-change-transform"
-            style={{
-              animation: 'scroll-infinite 40s linear infinite',
-              animationPlayState: 'running'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
-          >
-            {/* Primer set de certificaciones */}
+        {/* Logos estáticos de certificaciones */}
+        <div className="relative w-full py-12">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
             {certificaciones.map((cert) => (
               <div
                 key={`first-${cert.id}`}
-                className="mx-6 flex h-40 w-56 flex-shrink-0 items-center justify-center rounded-xl bg-white p-8 shadow-xl transition-transform hover:scale-105 md:mx-8 md:h-44 md:w-64"
-              >
-                <img
-                  src={cert.src}
-                  alt={cert.alt}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            ))}
-            
-            {/* Segundo set de certificaciones (duplicado para efecto infinito) */}
-            {certificaciones.map((cert) => (
-              <div
-                key={`second-${cert.id}`}
-                className="mx-6 flex h-40 w-56 flex-shrink-0 items-center justify-center rounded-xl bg-white p-8 shadow-xl transition-transform hover:scale-105 md:mx-8 md:h-44 md:w-64"
-              >
-                <img
-                  src={cert.src}
-                  alt={cert.alt}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-            ))}
-
-            {/* Tercer set de certificaciones (para seamless loop) */}
-            {certificaciones.map((cert) => (
-              <div
-                key={`third-${cert.id}`}
-                className="mx-6 flex h-40 w-56 flex-shrink-0 items-center justify-center rounded-xl bg-white p-8 shadow-xl transition-transform hover:scale-105 md:mx-8 md:h-44 md:w-64"
+                className="flex h-40 w-56 items-center justify-center rounded-xl bg-white p-8 shadow-xl transition-transform hover:scale-105 md:h-44 md:w-64"
               >
                 <img
                   src={cert.src}
@@ -91,6 +49,27 @@ export default function Certificaciones() {
               </div>
             ))}
           </div>
+
+          {/*
+          Carrusel original comentado para conservar la lógica que ya tenías:
+
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-gray-50 to-transparent md:w-32" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-gray-50 to-transparent md:w-32" />
+
+          <div
+            className="flex will-change-transform"
+            style={{
+              animation: 'scroll-infinite 40s linear infinite',
+              animationPlayState: 'running'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
+            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+          >
+            {certificaciones.map((cert) => (...))}
+            {certificaciones.map((cert) => (...))}
+            {certificaciones.map((cert) => (...))}
+          </div>
+          */}
         </div>
 
         {/* Texto adicional de confianza */}

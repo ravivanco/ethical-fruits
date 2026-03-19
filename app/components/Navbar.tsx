@@ -60,7 +60,7 @@ export default function Navbar() {
             isScrolled ? 'bg-[#68a317]/95 backdrop-blur-md shadow-lg' : ''
           }`}
         >
-          <div className="mx-auto flex max-w-fit items-center justify-center">
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-center">
             <nav className="hidden items-center gap-6 rounded-full bg-white/10 px-6 py-4 backdrop-blur-md lg:flex">
               {navLinks.map((link) => (
                 <a
@@ -76,6 +76,22 @@ export default function Navbar() {
                 </a>
               ))}
             </nav>
+
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="fixed right-4 top-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-[#68a317] text-white shadow-lg transition-all hover:scale-110 md:right-6 md:top-6 lg:hidden"
+              aria-label="Menú"
+            >
+              {menuOpen ? (
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </header>
       )}
