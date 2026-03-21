@@ -14,7 +14,7 @@ export default function NuestrosProductos() {
       presentacion: ['Cajas de 20 Kg – 14 Kg (Cavendish y Orgánico)', 'Cajas de 5 Kg (Baby Banana)'],
       origen: 'Ecuador',
       imagenCaja: '/img/banana.png',
-      imagenFruta: '/img/banana.png'
+      imagenFruta: '/img/banano-02.png'
     },
     {
       nombre: 'Arándanos',
@@ -34,7 +34,7 @@ export default function NuestrosProductos() {
       presentacion: ['Cajas de 4 Kg', 'Cajas de 8 Kg', 'Cajas de 10 Kg'],
       origen: 'Perú',
       imagenCaja: '/img/granada.png',
-      imagenFruta: '/img/granada.png'
+      imagenFruta: '/img/granada-02.png'
     },
     {
       nombre: 'Piña',
@@ -44,7 +44,7 @@ export default function NuestrosProductos() {
       presentacion: ['Cajas de 6 Kg', 'Cajas de 12 Kg'],
       origen: 'Ecuador / Brasil',
       imagenCaja: '/img/pina.png',
-      imagenFruta: '/img/pina.png'
+      imagenFruta: '/img/piña-02.png'
     },
     {
       nombre: 'Mango',
@@ -54,7 +54,7 @@ export default function NuestrosProductos() {
       presentacion: ['Cajas de 4 Kg', 'Cajas de 6 Kg'],
       origen: 'Brasil',
       imagenCaja: '/img/mango.png',
-      imagenFruta: '/img/mango.png'
+      imagenFruta: '/img/mango-02.png'
     },
     {
       nombre: 'Aguacate',
@@ -64,7 +64,7 @@ export default function NuestrosProductos() {
       presentacion: ['Cajas pequeñas / Retail: 2 Kg a 2.5 Kg', 'Cajas medianas: 4 Kg, 5 Kg, 7.5 Kg o 10 Kg', 'Cajas de exportación estándar (25 lb): 11 Kg – 12 Kg'],
       origen: 'Perú / Ecuador',
       imagenCaja: '/img/aguacate.png',
-      imagenFruta: '/img/aguacate.png'
+      imagenFruta: '/img/agucate-02.png'
     },
     {
       nombre: 'Plátano',
