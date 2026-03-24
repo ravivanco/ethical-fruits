@@ -12,75 +12,23 @@ type MediaItem = {
   poster?: string;
 };
 
-const GALLERY_ITEMS: MediaItem[] = [
-  {
-    id: 1,
-    type: 'image',
-    src: '/img/agucates-fabrica.jpg',
-    title: 'Aguacates seleccionados para exportacion',
-    description: 'Lotes en planta con control de calidad y trazabilidad.',
-  },
-  {
-    id: 2,
-    type: 'image',
-    src: '/img/arandanos-cultivos.jpg',
-    title: 'Cultivo de arandanos',
-    description: 'Supervision tecnica en campo durante etapa productiva.',
-  },
-  {
-    id: 3,
-    type: 'image',
-    src: '/img/platanos-proceso.jpg',
-    title: 'Proceso de platano',
-    description: 'Manejo postcosecha para mantener calidad comercial.',
-  },
-  {
-    id: 4,
-    type: 'image',
-    src: '/img/platanos-proceso-02.jpg',
-    title: 'Proceso de platano en linea',
-    description: 'Preparacion de fruta para empaque y despacho.',
-  },
-  {
-    id: 5,
-    type: 'image',
-    src: '/img/pitahaya-empaquetado.jpg',
-    title: 'Empaquetado de pitahaya',
-    description: 'Empaque con criterios de sanidad para exportacion.',
-  },
-  {
-    id: 6,
-    type: 'image',
-    src: '/img/arandanos-produccion.jpg',
-    title: 'Produccion de arandanos',
-    description: 'Clasificacion y acondicionamiento en centro de proceso.',
-  },
-  {
-    id: 7,
-    type: 'image',
-    src: '/img/pitahaya-planta.jpg',
-    title: 'Pitahaya en plantacion',
-    description: 'Seguimiento agronomico en origen.',
-  },
-  // Ejemplo para videos:
-  // {
-  //   id: 8,
-  //   type: 'video',
-  //   src: '/videos/proceso-cosecha.mp4',
-  //   poster: '/img/platanos-proceso.jpg',
-  //   title: 'Cosecha en campo',
-  //   description: 'Video real del proceso de cosecha.',
-  // },
-];
+const GALLERY_ITEMS: MediaItem[] = Array.from({ length: 46 }, (_, i) => ({
+  id: i + 1,
+  type: 'image' as const,
+  src: `/img/galery/${i + 1}.png.png`,
+  title: `Imagen de galería ${i + 1}`,
+  description: 'Vista de nuestras plantaciones y procesos de producción.',
+}));
 
-const CARD_HEIGHTS = [
-  'h-[240px] md:h-[280px]',
-  'h-[320px] md:h-[380px]',
-  'h-[260px] md:h-[310px]',
-  'h-[300px] md:h-[360px]',
-  'h-[230px] md:h-[280px]',
-  'h-[340px] md:h-[400px]',
-  'h-[260px] md:h-[310px]',
+const TILE_PATTERNS = [
+  'sm:col-span-1 sm:row-span-2',
+  'sm:col-span-1 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2',
+  'sm:col-span-1 sm:row-span-2',
+  'sm:col-span-1 sm:row-span-1',
+  'sm:col-span-2 sm:row-span-1 lg:col-span-1 lg:row-span-2',
+  'sm:col-span-1 sm:row-span-2',
+  'sm:col-span-1 sm:row-span-1',
 ] as const;
 
 export default function Galeria() {
@@ -187,12 +135,12 @@ export default function Galeria() {
           </button>
         </div>
 
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 md:gap-6 [column-fill:_balance]">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[170px] md:grid-cols-4 md:auto-rows-[145px] md:gap-5 lg:grid-cols-6 lg:auto-rows-[125px] lg:gap-6">
           {filteredItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className={`group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-white/70 shadow-[0_12px_30px_rgba(20,30,50,0.15)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(20,30,50,0.22)] md:mb-6 ${CARD_HEIGHTS[index % CARD_HEIGHTS.length]}`}
+              className={`group relative block h-[270px] w-full overflow-hidden rounded-2xl border border-white/70 shadow-[0_12px_30px_rgba(20,30,50,0.15)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(20,30,50,0.22)] sm:h-auto ${TILE_PATTERNS[index % TILE_PATTERNS.length]}`}
               style={{ animation: `galleryRise 0.55s ease-out ${index * 0.08}s both` }}
               aria-label={`Abrir ${item.title}`}
             >
@@ -215,10 +163,14 @@ export default function Galeria() {
                 />
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-40 transition-opacity duration-300 group-hover:opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent opacity-55 transition-opacity duration-300 group-hover:opacity-80" />
 
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/92 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#1d2939] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                {item.type === 'video' ? 'Ver Video' : 'Ver Imagen'}
+              <div className="absolute bottom-3 left-3 rounded-full bg-white/92 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#1d2939] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                {item.type === 'video' ? 'Video' : 'Foto'}
+              </div>
+
+              <div className="absolute bottom-3 right-3 rounded-full bg-black/45 px-3 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm">
+                {String(index + 1).padStart(2, '0')}
               </div>
             </button>
           ))}

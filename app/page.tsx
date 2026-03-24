@@ -89,8 +89,10 @@ export default function Home() {
         </div>
 
         <a
-          href="#contacto"
-          className="absolute bottom-28 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl md:bottom-30 md:right-10"
+          href="https://wa.me/593983403559"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-28 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition hover:scale-110 md:bottom-30 md:right-10"
           aria-label="WhatsApp"
         >
           <img
